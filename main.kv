@@ -1,0 +1,98 @@
+ScreenManager:
+    id: screen_manager
+    HomeScreen:
+        id: home_screen
+        name: 'home'
+        manager: screen_manager
+    SurvivalScreen:
+        id: survival_screen
+        name: 'survival'
+        manager: screen_manager
+    EndlessScreen:
+        id: endless_screen
+        name: 'endless'
+        manager: screen_manager
+    SettingScreen:
+        id: setting_screen
+        name: 'setting'
+        manager: screen_manager
+    StoryScreen:
+        id: story_screen
+        name: 'story'
+        manager: screen_manager
+
+<HomeScreen>:
+	name: "home"
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'img/bk.png'
+	FloatLayout:
+		Image:
+			source:'img/title.png'
+	        pos_hint: {'center_x': .5, 'center_y':.7}
+		Button:
+			size_hint: 1, .1067
+			pos_hint: {'center_x': .5, 'center_y':.55}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current="survival"
+			background_normal: 'img/survival_normal.png'
+			background_down:'img/survival_down.png'
+		Button:
+			size_hint: 1, .1067
+			pos_hint: {'center_x': .5, 'center_y':.44}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current="endless"
+			background_normal: 'img/endless_normal.png'
+			background_down:'img/endless_down.png'
+		Button:
+			size_hint: 1, .1067
+			pos_hint: {'center_x': .5, 'center_y': .33}
+			on_release:
+				app.root.transition.direction = 'left' 
+				app.root.current="story"
+			background_normal: 'img/story_normal.png'
+			background_down:'img/story_down.png'
+		Button:
+			pos_hint:{'right':.9,'top':.9}
+	        size_hint: .08,.1067
+	        on_release: 
+	        	app.root.transition.direction = 'left'
+	        	app.root.current="setting"
+	        background_normal: 'img/setting_normal.png'
+			background_down:'img/setting_down.png'
+	        
+<SurvivalScreen>:
+	name: "survival"
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'img/bk.png'
+
+<EndlessScreen>:
+	name: "endless"
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'img/bk.png'
+
+<SettingScreen>:
+	name: "setting"
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'img/bk.png'
+
+<StoryScreen>:
+	name: "story"
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'img/bk.png'
